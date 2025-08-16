@@ -211,14 +211,21 @@ awk -F',' 'NR>1 && seen[$1]++ {print "Duplicate ID:", $1, "->", $0}' filename_oc
 
 ```bash
 # Find potential duplicates by name combination (skip header row)
-awk -F',' 'NR>1 && seen[$2$3]++ {print "Potential duplicate:", $2, $3, "->", $0}' filename_ocr.csv
+awk -F',' 'NR>1 && seen[$2"|"$3]++ {print "Potential duplicate:", $2, $3, "->", $0}' filename_ocr.csv
 ```
 
 #### 3. Age Anomaly Detection
 
 ```bash
 # Find voters with suspicious ages (skip header row)
-awk -F',' 'NR>1 && ($5 < 18 || $5 > 120) {print "Age anomaly:", $0}' filename_ocr.csv
+awk -F',' 'NR>1 { 
+    # Remove quotes from field 5 and convert to number
+    age = $5
+    gsub(/"/, "", age)
+    age = age + 0
+    if (age < 18 || age > 120) 
+        print "Age anomaly: " $0 " (Age: " age ")"
+}' filename_ocr.csv
 ```
 
 ### 📊 Excel/Google Sheets Analysis
