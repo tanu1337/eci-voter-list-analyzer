@@ -1,0 +1,32 @@
+{
+  "name": "eci-voter-list-analyzer",
+  "version": "1.0.0",
+  "description": "A Node.js tool for analyzing and processing Election Commission of India (ECI) voter lists with AI-powered insights and PDF generation capabilities",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "eci",
+    "voter-list",
+    "election-commission",
+    "india",
+    "pdf",
+    "ai",
+    "analysis",
+    "government-data"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.11.0",
+    "chalk": "^5.5.0",
+    "dotenv": "^17.2.1",
+    "inquirer": "^12.9.2",
+    "p-limit": "^7.0.0",
+    "pdf-lib": "^1.17.1",
+    "uuid": "^11.1.0"
+  }
+}
