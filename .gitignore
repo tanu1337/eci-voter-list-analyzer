@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+# Package lock files
+package-lock.json
+
+# Temporary files
+temp_chunks/
+
+# Output files
+results/
+
+# System files
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
