@@ -131,7 +131,7 @@ const voterSchema = {
                     father_husband_name: { type: SchemaType.STRING, description: "पिता/पति का नाम" },
                     address: { type: SchemaType.STRING, description: "मकान संख्या" },
                     age: { type: SchemaType.STRING, description: "उम्र" },
-                    gender: { type: SchemaType.STRING, description: "लिंग - extract exact text as written in PDF" },
+                    gender: { type: SchemaType.STRING, description: "लिंग" },
                     voter_id: { type: SchemaType.STRING, description: "Voter ID" }
                 },
                 required: ["name", "father_husband_name", "address", "age", "gender", "voter_id"]
@@ -242,7 +242,6 @@ const processPDFChunk = async (chunk, modelInstance, chunkTag, apiKey) => {
                 {
                     text: `Extract all voter information from this Hindi electoral roll PDF.
 For each voter, extract: name, father/husband name, address, age, gender, and Voter ID.
-IMPORTANT: For gender field, extract the EXACT text as written in the PDF (पुरुष/महिला/etc.) - do NOT translate to English.
 Keep all text in original language as it appears in the document.
 Return ALL voters found in JSON format.`
                 },
