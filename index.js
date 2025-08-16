@@ -97,7 +97,7 @@ const convertExistingJSONToCSV = async (jsonFilePath, baseName) => {
         }
 
         const csvContent = [
-            '"ID,"Name","Father/Husband Name","Address","Age","Gender"',
+            '"ID","Name","Father/Husband Name","Address","Age","Gender"',
             ...data.voters.map(voter =>
                 `"${voter.voter_id || ''}","${voter.name || ''}","${voter.father_husband_name || ''}","${voter.address || ''}","${voter.age || ''}","${voter.gender || ''}"`
             )
